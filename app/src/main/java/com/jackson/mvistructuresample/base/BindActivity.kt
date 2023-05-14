@@ -2,14 +2,13 @@ package com.jackson.mvistructuresample.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Lifecycle
 
 abstract class BindActivity<B: ViewDataBinding>(
     @LayoutRes private val layoutId: Int
-): AppCompatActivity() {
+): BaseActivity() {
 
     private var _binding: B? = null
     protected val binding: B get() = _binding!!
