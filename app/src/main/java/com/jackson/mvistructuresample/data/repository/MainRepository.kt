@@ -4,7 +4,7 @@ import com.jackson.mvistructuresample.data.model.User
 
 class MainRepository {
 
-    suspend fun getUser(): User? = null
+    suspend fun getUserOrNull(): User? = null
 
     suspend fun getUsers() = listOf(
         User(

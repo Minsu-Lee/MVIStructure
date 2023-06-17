@@ -41,9 +41,15 @@ class MainViewModel: BaseViewModel<MainState, SideEffectIntent, MainIntent>() {
         }
     }
 
+    fun updateUserInfo() {
+        launch {
+            send(MainIntent.CallUserInfo)
+        }
+    }
+
     private fun laodUserInfo() {
         launch {
-            val user = repository.getUser()
+            val user = repository.getUserOrNull()
             if (user == null) {
                 val sideEffect = SideEffectIntent.ShowPopup(
                     "사용자 정보",
@@ -53,12 +59,6 @@ class MainViewModel: BaseViewModel<MainState, SideEffectIntent, MainIntent>() {
                 )
                 sideEffect(sideEffect)
             }
-        }
-    }
-
-    fun updateUserInfo() {
-        launch {
-            send(MainIntent.CallUserInfo)
         }
     }
 }
