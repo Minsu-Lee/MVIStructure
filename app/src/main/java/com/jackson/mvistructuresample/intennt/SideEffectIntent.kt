@@ -5,6 +5,7 @@ sealed class SideEffectIntent {
     data class ShowPopup(
         var title: String,
         var message: String,
+        val negativeTxt: String,
         val confirmTxt: String
     ): SideEffectIntent()
 }

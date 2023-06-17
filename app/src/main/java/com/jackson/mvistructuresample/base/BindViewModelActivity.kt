@@ -3,9 +3,12 @@ package com.jackson.mvistructuresample.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.lifecycleScope
 import com.jackson.mvistructuresample.BR
 
-abstract class BindViewModelActivity<B: ViewDataBinding, VM: BaseViewModel>(
+private typealias SideEffect<SI> = ViewModelSideEffect<SI>
+abstract class BindViewModelActivity<B: ViewDataBinding, VM: ViewModel, SE: SideEffect<SI>, SI>(
     @LayoutRes private val layoutId: Int
 ): BindActivity<B>(layoutId) {
 
@@ -14,9 +17,11 @@ abstract class BindViewModelActivity<B: ViewDataBinding, VM: BaseViewModel>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
+        initSideEffect()
     }
 
     private fun initViewModel() {
+        lifecycleScope
         with(binding) {
             lifecycleOwner = this@BindViewModelActivity
             /**
@@ -30,4 +35,13 @@ abstract class BindViewModelActivity<B: ViewDataBinding, VM: BaseViewModel>(
             }
         }
     }
+
+    /**
+     * BaseActivity 에서 SideEffect Flow의 구독행위를 진행
+     */
+    private fun initSideEffect() {
+        (viewModel as? SE)?.initSideEffect(lifecycleScope, ::handleSideEffect)
+    }
+
+    open fun handleSideEffect(sideEffect: SI) { }
 }
