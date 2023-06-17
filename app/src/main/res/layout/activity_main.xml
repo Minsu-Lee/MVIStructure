@@ -15,19 +15,58 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:minWidth="300dp"
             android:padding="20dp"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="#00aaff"
-            android:onClick="@{()->vm.testProc()}"
+            android:text="@{String.valueOf(vm.state.count)}"
+            android:onClick="@{v->vm.updateUserInfo()}"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="#eaeaea"
+            android:text="-"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:onClick="@{v->vm.decrement()}"
+            app:layout_constraintStart_toStartOf="@id/count"
+            app:layout_constraintTop_toBottomOf="@id/count"
+            app:layout_constraintEnd_toStartOf="@id/vCenterLine" />
+
+        <View
+            android:id="@+id/vCenterLine"
+            android:layout_width="1dp"
+            android:layout_height="56dp"
+            android:background="#ffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/count"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="#eaeaea"
+            android:text="+"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:onClick="@{v->vm.increment()}"
+            app:layout_constraintStart_toEndOf="@id/vCenterLine"
+            app:layout_constraintTop_toBottomOf="@id/count"
+            app:layout_constraintEnd_toEndOf="@id/count"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
