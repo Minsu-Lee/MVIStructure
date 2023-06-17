@@ -1,4 +1,4 @@
-package com.jackson.mvistructuresample.base
+package com.jackson.mvistructuresample.base.activity
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -6,6 +6,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import com.jackson.mvistructuresample.BR
+import com.jackson.mvistructuresample.base.ViewModelSideEffect
 
 private typealias SideEffect<SI> = ViewModelSideEffect<SI>
 abstract class BindViewModelActivity<B: ViewDataBinding, VM: ViewModel, SE: SideEffect<SI>, SI>(

@@ -3,11 +3,11 @@ package com.jackson.mvistructuresample.view.main
 import android.app.AlertDialog
 import androidx.activity.viewModels
 import com.jackson.mvistructuresample.R
-import com.jackson.mvistructuresample.base.BindViewModelActivity
+import com.jackson.mvistructuresample.base.activity.BindViewModelActivity
 import com.jackson.mvistructuresample.base.ViewModelSideEffect
 import com.jackson.mvistructuresample.databinding.ActivityMainBinding
 import com.jackson.mvistructuresample.extensions.toast
-import com.jackson.mvistructuresample.intennt.SideEffectIntent
+import com.jackson.mvistructuresample.view.main.intennt.SideEffectIntent
 
 private typealias SideEffect = ViewModelSideEffect<SideEffectIntent>
 class MainActivity: BindViewModelActivity<ActivityMainBinding, MainViewModel, SideEffect, SideEffectIntent>(

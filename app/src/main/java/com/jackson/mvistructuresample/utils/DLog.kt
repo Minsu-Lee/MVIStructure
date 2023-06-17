@@ -1,4 +1,4 @@
-package com.jackson.mvistructuresample.base
+package com.jackson.mvistructuresample.utils
 
 import android.util.Log
 import com.jackson.mvistructuresample.BuildConfig

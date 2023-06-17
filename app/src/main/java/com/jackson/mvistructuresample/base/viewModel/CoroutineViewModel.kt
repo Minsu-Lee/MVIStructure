@@ -1,4 +1,4 @@
-package com.jackson.mvistructuresample.base
+package com.jackson.mvistructuresample.base.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

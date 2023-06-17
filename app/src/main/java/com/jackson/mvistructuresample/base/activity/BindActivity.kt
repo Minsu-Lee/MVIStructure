@@ -1,4 +1,4 @@
-package com.jackson.mvistructuresample.base
+package com.jackson.mvistructuresample.base.activity
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

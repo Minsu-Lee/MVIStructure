@@ -1,4 +1,4 @@
-package com.jackson.mvistructuresample.intennt
+package com.jackson.mvistructuresample.view.main.intennt
 
 sealed class SideEffectIntent {
     data class Toast(var msg: String): SideEffectIntent()

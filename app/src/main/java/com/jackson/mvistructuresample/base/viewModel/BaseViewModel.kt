@@ -1,13 +1,14 @@
-package com.jackson.mvistructuresample.base
+package com.jackson.mvistructuresample.base.viewModel
 
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.viewModelScope
+import com.jackson.mvistructuresample.base.ViewModelSideEffect
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 
-abstract class BaseViewModel<STATE, SIDE_EFFECT, INTENT>(
+abstract class BaseViewModel<STATE, INTENT, SIDE_EFFECT>(
     dispatcher: CoroutineDispatcher = Dispatchers.IO,
     started: SharingStarted = SharingStarted.Eagerly
 ): CoroutineViewModel(dispatcher), ViewModelSideEffect<SIDE_EFFECT> {
